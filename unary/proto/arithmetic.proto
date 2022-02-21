@@ -1,8 +1,8 @@
 syntax = "proto3";
 
-package arithmetic;
+package pb;
 
-option go_package = "./arithmetic";
+option go_package = "./pb";
 
 service ArithmeticService {
     rpc Addition(Parameters) returns (Answer);
