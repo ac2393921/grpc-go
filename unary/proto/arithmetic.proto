@@ -1,0 +1,21 @@
+syntax = "proto3";
+
+package arithmetic;
+
+option go_package = "./arithmetic";
+
+service ArithmeticService {
+    rpc Addition(Parameters) returns (Answer);
+    rpc Subtraction(Parameters) returns (Answer);
+    rpc Multiplication(Parameters) returns (Answer);
+    rpc Division(Parameters) returns (Answer);
+}
+
+message Answer {
+    int32 value = 1;
+}
+
+message Parameters {
+    int32 a = 1;
+    int32 b = 2;
+}
