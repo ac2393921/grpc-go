@@ -14,7 +14,7 @@ import (
 const port = ":50051"
 
 type ServerUnary struct {
-	pb.ArithmeticServiceClient
+	pb.UnimplementedArithmeticServiceServer
 }
 
 func (s *ServerUnary) Addition(ctx context.Context, parameters *pb.Parameters) (*pb.Answer, error) {
@@ -37,7 +37,7 @@ func set() error {
 	s := grpc.NewServer()
 	var server ServerUnary
 	pb.RegisterArithmeticServiceServer(s, &server)
-	if err != s.Server(lis); err != nil {
+	if err := s.Serve(lis); err != nil {
 		return errors.Wrap(err, "failed server start")
 	}
 
