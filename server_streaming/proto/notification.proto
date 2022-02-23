@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+package pb;
+
+option go_package = "./pb";
+
+service Notification {
+    rpc Notification(NotificationRequest) returns (stream NotificationReply) {}
+}
+
+message NotificationRequest {
+    int32 num = 1;
+}
+
+message NotificationReply {
+    string message = 1;
+}
