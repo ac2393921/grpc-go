@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+package pb;
+
+option go_package = "./pb";
+
+service Upload {
+    rpc Upload(stream UploadRequest) returns (UploadReply) {}
+}
+
+message UploadRequest {
+    int32 value = 1;
+}
+
+message UploadReply {
+    string message = 1;
+}
